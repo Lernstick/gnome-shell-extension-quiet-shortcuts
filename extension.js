@@ -1,6 +1,5 @@
 const Main = imports.ui.main;
 const Meta = imports.gi.Meta;
-const Lang = imports.lang;
 const ShortcutsDialog = imports.ui.inhibitShortcutsDialog;
 
 let injections = [];
