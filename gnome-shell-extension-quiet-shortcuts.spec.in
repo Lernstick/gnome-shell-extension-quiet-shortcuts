@@ -1,0 +1,31 @@
+Name:           gnome-shell-extension-quiet-shortcuts
+Version:        @version@
+Release:        1%{?dist}
+Summary:        Disable the shortcut inhibitor dialog
+
+Group:          User Interface/Desktops
+License:        GPLv2+
+URL:            http://wiki.gnome.org/Projects/GnomeShell/Extensions
+Source0:        @name@-%{version}.tar.xz
+BuildArch:      noarch
+
+%description
+A GNOME Shell extension to disable the shortcut inhibitor dialog and
+replace it with a simple unobtrusive notification.
+
+%prep
+%autosetup -N -n @name@-%{version}
+
+%build
+%meson
+%meson_build
+
+%install
+%meson_install
+
+%files
+%{_datadir}/gnome-shell/extensions/@uuid@/
+
+%changelog
+* Tue Jan 29 2019 Olivier Fourdan <fourdan@gmail.com> - 0.0.1-1
+- Initial release
