@@ -1,0 +1,7 @@
+{
+"name": "Quiet Shortcuts",
+"description": "Disable the shortcut inhibitor dialog",
+"uuid": "quiet-shortcuts@lernstick.ch",
+"shell-version": ["43", "44", "45"],
+"url": "https://github.com/Lernstick/gnome-shell-extension-quiet-shortcuts"
+}

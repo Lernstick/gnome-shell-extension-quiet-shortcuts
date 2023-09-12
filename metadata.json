@@ -1,7 +1,0 @@
-{
-"name": "Quiet Shortcuts",
-"description": "Disable the shortcut inhibitor dialog",
-"uuid": "quiet-shortcuts@fourdan.gmail.com",
-"shell-version": ["3.30"],
-"url": "https://gitlab.gnome.org/ofourdan/quiet-shortcuts-gnome-shell-extension"
-}

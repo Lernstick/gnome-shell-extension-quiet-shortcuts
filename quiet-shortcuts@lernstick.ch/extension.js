@@ -31,9 +31,6 @@ function close() {
 
 function open() {
     let shortcutDialog = shortcutDialogs[this];
-    let name = shortcutDialog._app ? shortcutDialog._app.get_name() : shortcutDialog._window.title;
-
-    Main.notify(_("“%s” has been granted keyboard shortcuts").format(name));
     shortcutDialog._emitResponse(Meta.InhibitShortcutsDialogResponse.ALLOW);
 }
 
