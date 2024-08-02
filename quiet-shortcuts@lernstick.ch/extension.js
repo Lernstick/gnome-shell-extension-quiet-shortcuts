@@ -1,6 +1,5 @@
-const Main = imports.ui.main;
-const Meta = imports.gi.Meta;
-const ShortcutsDialog = imports.ui.inhibitShortcutsDialog;
+import Meta from 'gi://GLib';
+import * as ShortcutsDialog from 'resource:///org/gnome/shell/ui/inhibitShortcutsDialog.js';
 
 let injections = [];
 let shortcutDialogs = [];
@@ -22,9 +21,6 @@ function removeInjection(object, injection, name) {
         object[name] = injection[name];
 }
 
-function init() {
-}
-
 function close() {
     shortcutDialogs[this] = undefined;
 }
@@ -40,13 +36,15 @@ function built() {
     injectToFunction(this._dialog, 'close', close);
 }
 
-function enable() {
-    injections['_buildLayout'] =
-        injectToFunction(ShortcutsDialog.InhibitShortcutsDialog.prototype,
-                         '_buildLayout', built);
-}
-
-function disable() {
-    removeInjection(ShortcutsDialog.InhibitShortcutsDialog.prototype,
-                    injections, '_buildLayout');
+export default class QuietShortcuts {
+    enable() {
+        injections['_buildLayout'] =
+            injectToFunction(ShortcutsDialog.InhibitShortcutsDialog.prototype,
+                             '_buildLayout', built);
+    }
+    
+    disable() {
+        removeInjection(ShortcutsDialog.InhibitShortcutsDialog.prototype,
+                        injections, '_buildLayout');
+    }
 }
