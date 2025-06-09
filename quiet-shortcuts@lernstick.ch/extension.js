@@ -1,5 +1,7 @@
-import Meta from 'gi://GLib';
+import Meta from 'gi://Meta';
 import * as ShortcutsDialog from 'resource:///org/gnome/shell/ui/inhibitShortcutsDialog.js';
+
+const GRANTED = 'GRANTED';
 
 let injections = [];
 let shortcutDialogs = [];
@@ -27,6 +29,7 @@ function close() {
 
 function open() {
     let shortcutDialog = shortcutDialogs[this];
+    shortcutDialog._saveToPermissionStore(GRANTED);
     shortcutDialog._emitResponse(Meta.InhibitShortcutsDialogResponse.ALLOW);
 }
 
